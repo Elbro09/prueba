@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Anuncio - Plantilla Profesional</title>
+    <style>
+        /* ESTILOS GLOBALES */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* NAVEGACIÓN / ENCABEZADO */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2b5a8f;
+            display: flex;
+            align-items: center;
+        }
+
+        .btn-header {
+            background-color: #2b5a8f;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .btn-header:hover {
+            background-color: #1e3f66;
+        }
+
+        /* SECCIÓN HERO (ANUNCIO PRINCIPAL) */
+        .hero {
+            background: linear-gradient(135deg, #ffffff 0%, #eef4fa 100%);
+            padding: 80px 0;
+        }
+
+        .hero-grid {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero-text h1 {
+            font-size: 42px;
+            color: #111;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .hero-image-container {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        /* SECCIÓN DE CARACTERÍSTICAS / BENEFICIOS */
+        .features {
+            padding: 80px 0;
+            background-color: #ffffff;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 32px;
+            margin-bottom: 50px;
+            color: #111;
+        }
+
+        .features-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .feature-card {
+            flex: 1;
+            min-width: 250px;
+            background: #fdfdfd;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #eaeaea;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .feature-card h3 {
+            margin: 20px 0 10px 0;
+            font-size: 20px;
+            color: #2b5a8f;
+        }
+
+        /* SECCIÓN DETALLE DE PRODUCTO (DESTACADO) */
+        .product-detail {
+            padding: 80px 0;
+            background-color: #f1f5f9;
+        }
+
+        .detail-grid {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .detail-image-container {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .detail-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .detail-text h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #111;
+        }
+
+        .detail-text p {
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #555;
+        }
+
+        /* LLAMADO A LA ACCIÓN FINAL (CTA) */
+        .cta-final {
+            background-color: #2b5a8f;
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .cta-final h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .cta-final p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .btn-large {
+            background-color: #ffcc00;
+            color: #111;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 20px;
+            font-weight: bold;
+            transition: transform 0.2s, background-color 0.3s;
+            display: inline-block;
+        }
+
+        .btn-large:hover {
+            background-color: #e6b800;
+            transform: scale(1.05);
+        }
+
+        /* PIE DE PÁGINA */
+        footer {
+            background-color: #111111;
+            color: #888;
+            padding: 40px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* ------------------------------------------------------------
+           ESTILOS EXCLUSIVOS PARA LOS MARCADORES DE POSICIÓN DE IMAGEN
+           (PLACEHOLDERS)
+        ------------------------------------------------------------ */
+        .placeholder-image {
+            background-color: #e2e8f0;
+            border: 3px dashed #cbd5e1;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            color: #64748b;
+            font-weight: 600;
+            font-size: 14px;
+            position: relative;
+            transition: all 0.3s ease;
+            min-height: 250px;
+        }
+
+        .placeholder-image:hover {
+            background-color: #cbd5e1;
+            color: #475569;
+        }
+
+        .placeholder-image svg {
+            width: 50px;
+            height: 50px;
+            fill: #94a3b8;
+            margin-bottom: 15px;
+        }
+
+        .placeholder-image span.dimension {
+            display: block;
+            font-size: 12px;
+            color: #94a3b8;
+            margin-top: 5px;
+            font-weight: normal;
+        }
+
+        /* Ajustes específicos de tamaño para los placeholders */
+        .hero-image-container .placeholder-image {
+            min-height: 400px;
+        }
+
+        .feature-card .placeholder-image {
+            min-height: 150px;
+            padding: 20px 10px;
+        }
+
+        .detail-image-container .placeholder-image {
+            min-height: 350px;
+        }
+
+        .logo-placeholder {
+            background-color: #e2e8f0;
+            border: 2px dashed #cbd5e1;
+            padding: 5px 15px;
+            font-size: 14px;
+            color: #64748b;
+            border-radius: 4px;
+            font-weight: normal;
+            margin-right: 10px;
+        }
+
+        /* IMAGEN REAL (Oculta por defecto hasta que pongas una ruta válida) */
+        .placeholder-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: none; /* Cambiar a block o remover esta línea cuando agregues tu imagen */
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero-grid, .features-grid, .detail-grid {
+                flex-direction: column;
+            }
+            .hero-text, .hero-image-container, .feature-card, .detail-image-container, .detail-text {
+                width: 100%;
+            }
+            .hero-text h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+         ENCABEZADO / NAVEGACIÓN
+         ========================================== -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <!-- 1. PON TU LOGO AQUÍ -->
+                <!-- Si tienes un archivo de logo, descomenta la línea de abajo y pon su ruta en 'src' -->
+                <!-- <img src="tu-logo.png" alt="Logo" style="height: 40px;"> -->
+                <span class="logo-placeholder">LOGO AQUÍ</span>
+                MiEmpresa
+            </div>
+            <a href="#cta" class="btn-header">Contactar</a>
+        </div>
+    </header>
+
+    <!-- ==========================================
+         SECCIÓN PRINCIPAL (HERO)
+         ========================================== -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <h1>El título impactante de tu producto o servicio</h1>
+                <p>Describe aquí de forma clara y concisa el beneficio principal de lo que estás anunciando. Atrapa la atención del cliente en las primeras dos líneas.</p>
+                <a href="#cta" class="btn-large">¡Obtener Oferta Ahora!</a>
+            </div>
+            
+            <div class="hero-image-container">
+                <!-- ====================================================
+                     2. ¡PON LA IMAGEN PRINCIPAL (HERO) AQUÍ!
+                     Reemplaza todo el bloque <div> de abajo por tu etiqueta <img> cuando estés listo,
+                     o simplemente inserta la ruta en el src del <img> interno y quita el texto.
+                     ==================================================== -->
+                <div class="placeholder-image">
+                    <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5.04-6.71l-2.75 3.54-1.96-2.36L6.5 17h11l-3.54-4.71z"/></svg>
+                    <span>[PON AQUÍ TU IMAGEN PRINCIPAL]</span>
+                    <span class="dimension">Dimensión sugerida: 600px x 450px</span>
+                    
+                    <!-- Ejemplo de cómo ponerla:
+                    <img src="imagenes/banner-principal.jpg" alt="Producto Principal" style="display:block;"> 
+                    -->
+                </div>
+                <!-- ==================================================== -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECCIÓN DE BENEFICIOS (3 COLUMNAS)
+         ========================================== -->
+    <section class="features">
+        <div class="container">
+            <h2>Por qué elegirnos</h2>
+            <div class="features-grid">
+                
+                <!-- Beneficio 1 -->
+                <div class="feature-card">
+                    <!-- ====================================================
+                         3. PON LA IMAGEN/ICONO DEL BENEFICIO 1 AQUÍ
+                         ==================================================== -->
+                    <div class="placeholder-image">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+                        <span>[IMAGEN / ICONO 1]</span>
+                        <span class="dimension">Sugerido: 150px x 150px (Cuadrado)</span>
+                    </div>
+                    <!-- ==================================================== -->
+                    <h3>Beneficio Destacado 1</h3>
+                    <p>Explica brevemente una ventaja competitiva o característica clave de tu oferta.</p>
+                </div>
+
+                <!-- Beneficio 2 -->
+                <div class="feature-card">
+                    <!-- ====================================================
+                         4. PON LA IMAGEN/ICONO DEL BENEFICIO 2 AQUÍ
+                         ==================================================== -->
+                    <div class="placeholder-image">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+                        <span>[IMAGEN / ICONO 2]</span>
+                        <span class="dimension">Sugerido: 150px x 150px</span>
+                    </div>
+                    <!-- ==================================================== -->
+                    <h3>Beneficio Destacado 2</h3>
+                    <p>Explica otra gran ventaja. Recuerda usar palabras que generen confianza e interés.</p>
+                </div>
+
+                <!-- Beneficio 3 -->
+                <div class="feature-card">
+                    <!-- ====================================================
+                         5. PON LA IMAGEN/ICONO DEL BENEFICIO 3 AQUÍ
+                         ==================================================== -->
+                    <div class="placeholder-image">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+                        <span>[IMAGEN / ICONO 3]</span>
+                        <span class="dimension">Sugerido: 150px x 150px</span>
+                    </div>
+                    <!-- ==================================================== -->
+                    <h3>Beneficio Destacado 3</h3>
+                    <p>Tercera ventaja. Puede ser sobre el soporte técnico, envío gratis o garantía.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECCIÓN DETALLE / DEMOSTRACIÓN
+         ========================================== -->
+    <section class="product-detail">
+        <div class="container detail-grid">
+            
+            <div class="detail-image-container">
+                <!-- ====================================================
+                     6. PON LA IMAGEN DE DETALLE O PRODUCTO EN ACCIÓN AQUÍ
+                     ==================================================== -->
+                <div class="placeholder-image">
+                    <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5.04-6.71l-2.75 3.54-1.96-2.36L6.5 17h11l-3.54-4.71z"/></svg>
+                    <span>[PON AQUÍ UNA IMAGEN DE DETALLE O EN ACCIÓN]</span>
+                    <span class="dimension">Dimensión sugerida: 550px x 400px</span>
+                </div>
+                <!-- ==================================================== -->
+            </div>
+
+            <div class="detail-text">
+                <h2>¿Cómo funciona nuestro producto?</h2>
+                <p>Aquí puedes profundizar un poco más en la experiencia de uso. Cuéntale a tus clientes potenciales lo fácil que es resolver su problema usando tu solución.</p>
+                <p>Añade detalles técnicos relevantes, testimonios rápidos, o derriba las objeciones más comunes que suelen tener los compradores.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECCIÓN LLAMADO A LA ACCIÓN FINAL
+         ========================================== -->
+    <section id="cta" class="cta-final">
+        <div class="container">
+            <h2>¿Listo para empezar a ver resultados?</h2>
+            <p>Aprovecha nuestro descuento exclusivo por tiempo limitado. Quedan pocas unidades/cupos disponibles.</p>
+            <a href="https://tu-enlace-de-pago-o-contacto.com" class="btn-large">¡Comprar / Registrarse Ahora!</a>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         PIE DE PÁGINA
+         ========================================== -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 MiEmpresa. Todos los derechos reservados.</p>
+            <p style="margin-top: 10px; font-size: 12px; opacity: 0.6;">Diseñado como plantilla de anuncio editable.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
